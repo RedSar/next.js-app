@@ -1,8 +1,9 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from './Layout.module.css';
 import Logo from './Logo';
 
-const Layout = ({children, title = 'Worls Ranks'}) => (
+const Layout = ({ children, title = 'Worls Ranks' }) => (
   <div className={styles.container}>
     <Head>
       <title>{title}</title>
@@ -10,7 +11,11 @@ const Layout = ({children, title = 'Worls Ranks'}) => (
     </Head>
 
     <header className={styles.header}>
-      <Logo />
+      <Link href='/'>
+        <div className={styles.logo}>
+          <Logo />
+        </div>
+      </Link>
     </header>
 
     <main className={styles.main}>{children}</main>
