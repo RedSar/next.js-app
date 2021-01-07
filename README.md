@@ -1,7 +1,5 @@
 # About the app:
 
----
-
 A complete application using **React** and **Next.js** that implement the followings features:
 
 - Data sorting and filtering

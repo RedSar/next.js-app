@@ -13,6 +13,15 @@ export default function Home({countries}) {
       country.region.toLowerCase().includes(keyword) ||
       country.subregion.toLowerCase().includes(keyword)
   );
+  const fetchSearchResults = ({length}) => {
+    if (length > 1) {
+      return `Found ${length} countries`;
+    } else if (length === 1) {
+      return `One country found !`;
+    } else {
+      return 'No country found, try again!';
+    }
+  };
   const OnInputChange = (e) => {
     e.preventDefault();
     setKeyword(e.target.value);
@@ -20,13 +29,17 @@ export default function Home({countries}) {
 
   return (
     <Layout>
-      <div className={styles.count}>
-        Found {filteredCountries.length} countries
+      <div className={styles.inputContainer}>
+        <div className={styles.count}>
+          {fetchSearchResults(filteredCountries)}
+        </div>
+        <div className={styles.input}>
+          <SearchInput
+            placeholder='Filter by Name, Region or SubRegion'
+            onChange={OnInputChange}
+          />
+        </div>
       </div>
-      <SearchInput
-        placeholder='Filter by Name, Region or SubRegion'
-        onChange={OnInputChange}
-      />
       <CountriesTable countries={filteredCountries} />
     </Layout>
   );

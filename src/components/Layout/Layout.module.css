@@ -23,3 +23,13 @@
 .logo {
   cursor: pointer;
 }
+
+.switch_theme {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin-left: 8px;
+  outline: none;
+  cursor: pointer;
+  color: var(--text-color-secondary);
+}
